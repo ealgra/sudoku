@@ -1,0 +1,2 @@
+<div *ngIf="cell.IsResolved() else notsolved">{{cell.ResolvedNumber()}}</div>
+<ng-template #notsolved>{{cell.ValuesToString()}}</ng-template>
