@@ -28,7 +28,7 @@ export class CellComponent {
     }
 
     LeftConstraint() : string {
-        let constraint = '';
+        let constraint = ' ';
         let leftCellPosition = this.cell.position.ToLeftPosition();
         let leftConstraint = this.ConstraintWithPosition(leftCellPosition);
         if (leftConstraint) {
@@ -41,7 +41,7 @@ export class CellComponent {
         return constraint;
     }
     UpConstraint() : string {
-        let constraint = '';
+        let constraint = ' ';
         let aboveCellPosition = this.cell.position.ToAbovePosition();
         let upConstraint = this.ConstraintWithPosition(aboveCellPosition);
         if (upConstraint) {

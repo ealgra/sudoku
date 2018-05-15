@@ -1,0 +1,7 @@
+<textarea [(ngModel)]="inputText" value="{{inputText}}" style="height:250px; width:250px">
+</textarea>
+<br />
+
+Press <button (click)="LoadPuzzle()">here</button> to reload the puzzle<br/>
+
+<board-component [board] = board></board-component>
