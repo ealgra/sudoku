@@ -92,7 +92,7 @@ describe('Test Cell', function() {
             let board = new Board();
             board.AddCell(cell2);
             board.AddCell(cell1);
-            let gtConstraint = new GreaterThanConstraint(cell1, cell2);
+            let gtConstraint = new GreaterThanConstraint(cell2, cell1);
             board.AddConstraint(gtConstraint);
             let uniqueConstraint = new UniqueConstraint();
             uniqueConstraint.AddCell(cell1);

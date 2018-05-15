@@ -2,6 +2,7 @@ import {Cell, Position} from './Cell'
 import {Board} from './Board'
 
 export class Constraint {
+    label: string = "";
     cells = new Array<Cell>();
     AddCell(cell: Cell) {
         this.cells.push(cell);

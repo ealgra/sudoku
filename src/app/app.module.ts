@@ -10,6 +10,7 @@ import { Board } from './Board';
 import { Cell } from './Cell'
 import { MatCardModule } from '@angular/material/card';
 import { SudokuComponent } from './sudoku/sudoku.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SudokuComponent } from './sudoku/sudoku.component';
     MatGridListModule,
     MatCardModule,
     MatTabsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

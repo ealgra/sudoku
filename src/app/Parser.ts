@@ -9,21 +9,26 @@ export class SdParser {
     parsed: string;
     board: Board;
     nrRows = 0;
-    nrColumns = 0;
-    Parse(sdText: string, board:Board) {
+    Parse(sdText: string, board:Board, sudoku:boolean) {
         this.parsed = '';
         this.board = board;
         const lines = sdText.split(this.lineSeparator);
-        let lineNumber = 0;
-        this.nrColumns = lines[0].split(this.cellSeparator).length;
         this.nrRows = lines.length;
+        let lineNumber = 0;
         lines.forEach(line => {
             this.ParseLine(line, lineNumber);
             lineNumber++;
             this.parsed += '\n';
         });
         console.log(this.parsed);
-        this.board.CreateLineConstraints(this.nrRows, this.nrColumns);
+        if (sudoku) {
+            //drop existing constraints
+            this.board.constraints = [];
+            this.board.CreateBlockConstraints(3, 3);
+        }
+        this.board.CreateLineConstraints();
+        if (sudoku) {
+        }
         return this.board;
     }
 

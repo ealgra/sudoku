@@ -13,6 +13,7 @@ import { Constraint, GreaterThanConstraint } from './Constraint';
 export class CellComponent {
     @Input() cell: Cell;
     @Input() constraints: Array<Constraint>;
+    backgroundColor: string = '#FFFFFF';
     constructor() { }
 
     GtConstraints(): Array<GreaterThanConstraint> {

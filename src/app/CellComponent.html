@@ -1,6 +1,6 @@
 <!-- <mat-card *ngIf="cell.IsResolved() else notsolved">{{cell.ResolvedNumber()}}</mat-card>
 <ng-template #notsolved>{{cell.ValuesToString()}}</ng-template> -->
-<mat-card>
+<mat-card [style.background] = backgroundColor>
     <mat-card-title><div align="center">{{UpConstraint()}}</div>{{LeftConstraint()}} {{cell.ResolvedNumber()}}</mat-card-title>
-    <!-- <mat-card-content>[{{cell.originalValue}}]</mat-card-content> -->
+    <mat-card-content>[{{cell.originalValue}}]</mat-card-content>
 </mat-card>

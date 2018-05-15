@@ -7,20 +7,18 @@
 <mat-tab-group [dynamicHeight] = true>
     <mat-tab>
       <ng-template mat-tab-label>
-        The <em>best</em> pasta
+        Sudoku
       </ng-template>
-      <h1>Best pasta restaurants</h1>
-      <p>...</p>
+      <sudoku [applySudokuRules] = "true"></sudoku>
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>
-        The worst sushi
+        Futoshiki
       </ng-template>
-      <h1>Terrible sushi restaurants</h1>
-      <p>...</p>
+      <!-- <sudoku [applySudokuRules] = "false"></sudoku> -->
     </mat-tab>
   </mat-tab-group>
-  <sudoku></sudoku>
+  
 
 
 

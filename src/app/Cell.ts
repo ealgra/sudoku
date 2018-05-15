@@ -142,6 +142,14 @@ export class Position {
         this.position = position;
     }
 
+    X(): number {
+        return this.position[0];
+    }
+
+    Y(): number {
+        return this.position[1];
+    }
+
     ToLeftPosition() {
         let leftPosition = this.position.slice(0);
         leftPosition[0] = this.position[0] - 1;

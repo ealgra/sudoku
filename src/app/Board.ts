@@ -57,9 +57,12 @@ export class Board {
         return constraints;
     }
 
-    CreateLineConstraints(rows: number, columns: number) {
+    CreateLineConstraints() {
+        let rows = this.Dimension();
+        let columns = rows;
         for (let r = 0; r < columns; r++) {
             let columnConstraint = new UniqueConstraint();
+            columnConstraint.label = "line";
             for (let c = 0; c < rows; c++) {
                 columnConstraint.AddCell(this.CellAt(new Position([c, r])))
             }
@@ -67,11 +70,39 @@ export class Board {
         }
         for (let c = 0; c < rows; c++) {
             let rowConstraint = new UniqueConstraint();
+            rowConstraint.label = "line";
             for (let r = 0; r < columns; r++) {
-                rowConstraint.AddCell(this.CellAt(new Position([c, r])))
+                rowConstraint.AddCell(this.CellAt(new Position([c, r])));
             }
             this.AddConstraint(rowConstraint);
         }    
+    }
+
+    CreateBlockConstraints(blockRows: number, blockCols: number) {
+        let boardRows = this.Dimension();
+        let boardCols = boardRows;
+        for (let blockRowIndex = 0; blockRowIndex < boardRows / blockRows; blockRowIndex++) {
+            let boardRowIndex = blockRowIndex * blockRows;
+            for (let blockColIndex = 0; blockColIndex < boardCols / blockCols; blockColIndex++) {
+                let boardStartPos = new Position([blockColIndex * blockCols, blockRowIndex * blockRows]);
+                this.CreateBlockConstraint(boardStartPos, blockRows, blockCols);
+            }            
+        }
+    }
+
+    CreateBlockConstraint(startBoardPos: Position, blockRows: number, blockCols: number) {
+        let blockConstraint = new UniqueConstraint();
+        blockConstraint.label = "block";
+        let boardRows = this.Dimension();
+        let boardCols = boardRows;
+        let startPosRow = startBoardPos.Y();
+        let startPosCol = startBoardPos.X();
+        for (let r = startPosRow; r < startPosRow + blockRows; r++) {
+            for (let c = startPosCol; c < startPosCol + blockCols; c++) {
+                blockConstraint.AddCell(this.CellAt(new Position([c, r])));
+            }
+        }
+        this.AddConstraint(blockConstraint);
     }
 
     Resolve(): boolean {
