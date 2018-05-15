@@ -52,6 +52,11 @@ export class Board {
         this.constraints.push(constraint);
     }
 
+    ConstraintsForCell(cell: Cell): Array<Constraint> {
+        let constraints = this.constraints.filter(c => c.cells.indexOf(cell) >= 0);
+        return constraints;
+    }
+
     CreateLineConstraints(rows: number, columns: number) {
         for (let r = 0; r < columns; r++) {
             let columnConstraint = new UniqueConstraint();

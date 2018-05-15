@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(board: Board) {
     this.board = board;
   }
-  title = 'Egberts Puzzle Solver';
+  title = 'Puzzle Solver';
   //inputText = '1 2 3\n4 5 6\n7 * *,<';
   /*
   inputText = 

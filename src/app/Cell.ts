@@ -1,9 +1,22 @@
 export class Cell {
     position: Position;
+    originalValue: string;
     values: number[];
-    constructor(position: number[], values: number[]) {
+    constructor(position: number[], values: number[] = []) {
         this.position = new Position(position);
         this.values = values;
+    }
+
+    ApplyInput(val: string, range: number) {
+        this.originalValue = val;
+        this.values = [];
+        if (this.originalValue === '*') {
+            for (let i = 1; i <= range; i++) {
+                this.values.push(i);
+            }
+        } else {
+            this.values = [Number(this.originalValue)];
+        }
     }
 
     Clone() {
@@ -145,6 +158,10 @@ export class Position {
         let anId = ''
         this.position.forEach(p => { anId += p; anId += ';'; });
         return anId;
+    }
+
+    Equal(pos: Position): boolean {
+        return this.ToString() == pos.ToString();
     }
 
 }

@@ -42,16 +42,17 @@ export class SdParser {
         const numberStr = elements.shift();
         this.parsed += 'number:' + numberStr;
         const qualifiers = elements;
-        let value: number[];
-        if (numberStr === '*') {
-            value = [];
-            for (let i = 1; i <= this.nrRows; i++) {
-                value.push(i);
-            }
-        } else {
-            value = [Number(numberStr)];
-        }
-        const cell = new Cell(position, value);
+        // let value: number[];
+        // if (numberStr === '*') {
+        //     value = [];
+        //     for (let i = 1; i <= this.nrRows; i++) {
+        //         value.push(i);
+        //     }
+        // } else {
+        //     value = [Number(numberStr)];
+        // }
+        const cell = new Cell(position);
+        cell.ApplyInput(numberStr, this.nrRows);
         this.board.AddCell(cell);
 
         if (qualifiers.length > 0) {

@@ -1,7 +1,7 @@
 <div>
-    <mat-grid-list cols="9" gutterSize="4px" rowHeight="22px">
-        <mat-grid-tile [style.background]="'#ccffff'" *ngFor="let cell of board.cells">
-            <board-cell [cell] = cell></board-cell>
+    <mat-grid-list cols="9" gutterSize="4px">
+        <mat-grid-tile *ngFor="let cell of board.cells">
+            <board-cell [cell] = cell [constraints] = board.ConstraintsForCell(cell)></board-cell>
         </mat-grid-tile>
     </mat-grid-list>
 </div>

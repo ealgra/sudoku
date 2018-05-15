@@ -7,6 +7,7 @@ import { CellComponent } from './CellComponent';
 import { FormsModule } from '@angular/forms';
 import { Board } from './Board';
 import { Cell } from './Cell'
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { Cell } from './Cell'
   imports: [
     BrowserModule,
     MatGridListModule,
+    MatCardModule,
     FormsModule
   ],
   providers: [Board],

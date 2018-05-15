@@ -1,2 +1,6 @@
-<div *ngIf="cell.IsResolved() else notsolved">{{cell.ResolvedNumber()}}</div>
-<ng-template #notsolved>{{cell.ValuesToString()}}</ng-template>
+<!-- <mat-card *ngIf="cell.IsResolved() else notsolved">{{cell.ResolvedNumber()}}</mat-card>
+<ng-template #notsolved>{{cell.ValuesToString()}}</ng-template> -->
+<mat-card>
+    <mat-card-title>{{cell.ResolvedNumber()}}</mat-card-title>
+    <mat-card-content>{{UpConstraint()}}<br/>{{LeftConstraint()}}[{{cell.originalValue}}]</mat-card-content>
+</mat-card>
