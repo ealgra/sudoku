@@ -11,6 +11,7 @@ import { Cell } from './Cell'
 import { MatCardModule } from '@angular/material/card';
 import { SudokuComponent } from './sudoku/sudoku.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SudokuExamples } from './SudokuExamples'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [SudokuExamples],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

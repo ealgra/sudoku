@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { SdParser } from '../Parser';
 import { Board } from '../Board';
+import { SudokuExamples } from '../SudokuExamples';
 
 @Component({
   selector: 'sudoku',
@@ -8,6 +9,7 @@ import { Board } from '../Board';
   styleUrls: ['./sudoku.component.css']
 })
 export class SudokuComponent {
+  constructor(examples: SudokuExamples) {}
   // 
   @Input() applySudokuRules: boolean;
   board: Board;
